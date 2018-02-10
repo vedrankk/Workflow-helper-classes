@@ -10,7 +10,7 @@ The class was made for easier access to the database, and faster work.
 The Model class is suposed to be used with another, as seen in the test.php file. 
 Guidelines
 - The tableName() and attributes() function have to be set.
-- The attributes array has to be made so it is in the same order as the data in the table, with the priary key being the first value in the array.
+- The attributes array has to be made so it is in the same order as the data in the table, with the primary key being the first value in the array.
 
 SELECT:
 
