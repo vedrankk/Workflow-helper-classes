@@ -32,6 +32,7 @@ $test->select()->asArray()->one();
 ```
 
 **Example of WHERE**
+
 *Returns SELECT * FROM tableName WHERE t_id = 1 AND name = 'Vedran' LIMIT 1*
 ```php
 $test->select()->where(['t_id' => 1, 'name' => 'Vedran'])->one();
