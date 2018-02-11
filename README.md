@@ -21,15 +21,18 @@ Explanation code is in the test.php file
 $test->select()->all();
 ```
 
+
 **Selects all the data from another table**
 ```php
 $test->select()->from('tableName')->all();
 ```
 
+
 **Selects one row as array**
 ```php
 $test->select()->asArray()->one();
 ```
+
 
 **Example of WHERE**
 ```php
@@ -41,7 +44,9 @@ SELECT * FROM tableName WHERE t_id = 1 AND name = 'Vedran' LIMIT 1
 ```
 
 
-**Example of LEFT JOIN and of where using a string NOTICE: If you are searching for a string, ex name=Vedran, it has to be like 'name="Vedran"'**
+**Example of LEFT JOIN and of where using a string** 
+
+*NOTICE: If you are searching for a string, ex name=Vedran, it has to be like 'name="Vedran"'*
 ```php 
 $test->select()->where('t_id = 1')->leftJoin(['otherTableName', 'otherTableName.field', 'currentTableName.field'])->one();
 ```
@@ -49,6 +54,7 @@ $test->select()->where('t_id = 1')->leftJoin(['otherTableName', 'otherTableName.
 ```mysql
 SELECT * FROM test LEFT JOIN otherTableName ON otherTableName.field = currentTableName.field WHERE t_id = 1 LIMIT 1
 ```
+
 
 **Example of using andWhere and orWhere**
 ```php
@@ -58,6 +64,7 @@ $test->select()->where(['t_id' => 4])->andWhere(['name' => 'Vedran'])->orWhere([
 ```mysql
 SELECT * FROM test WHERE t_id = 1 AND name = Vedran OR age = 22 LIMIT 1
 ```
+
 
 
 **Example of LIMIT and ORDER BY**
