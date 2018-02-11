@@ -39,18 +39,21 @@ $test->select()->where(['t_id' => 1, 'name' => 'Vedran'])->one();
 ```
 
 **Example of LEFT JOIN and of where using a string NOTICE: If you are searching for a string, ex name=Vedran, it has to be like 'name="Vedran"'**
+
 *Returns the query SELECT * FROM test LEFT JOIN otherTableName ON otherTableName.field = currentTableName.field WHERE t_id = 1 LIMIT 1*
 ```php 
 $test->select()->where('t_id = 1')->leftJoin(['otherTableName', 'otherTableName.field', 'currentTableName.field'])->one();
 ```
 
 **Example of using andWhere and orWhere**
+
 *Returns the query SELECT * FROM test WHERE t_id = 1 AND name = Vedran OR age = 22 LIMIT 1*
 ```php
 $test->select()->where(['t_id' => 4])->andWhere(['name' => 'Vedran'])->orWhere(['age' => 22])->one();
 ```
 
 **Example of LIMIT and ORDER BY**
+
 *Returns the query SELECT * FROM test ORDER BY name DESC LIMIT 1*
 ```php
 $test->select()->limit('1')->orderBy('name DESC')->all();
@@ -81,6 +84,7 @@ $insertTest->getLastInsertId();
 # UPDATE
 
 **Manual way**
+
 *Update returns the number of rows affected*
 ```php
 $updateTest = new Test();
@@ -91,6 +95,7 @@ $user->save();
 ```
 
 **This is using the POST request, same as insert**
+
 *NOTICE: If there is a primaryId in the POST request, that it will update, in other cases in will insert new row*
 ```php
 $_POST['name'] = 'Johny';
@@ -120,6 +125,7 @@ $deleteTest->delete();
 ```
 
 **This way is more complicated, but more dynamic. It uses the WHERE functionality.**
+
 *In the deleteWhere you can specify the table from where to delete. The default is the tableName()*
 ```php
 $deleteTest->where(['t_id' => 1])->andWhere(['name' => 'Vedran'])->orWhere(['age' => 35])->deleteWhere();
