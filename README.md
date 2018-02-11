@@ -14,16 +14,16 @@ Guidelines
 
 SELECT:
 
-Cases and usage explained from line 17 to line 46
+Cases and usage explained from line 17 to line 46 in the test.php file
 
 INSERT:
 
-Cases and usage explained from line 49 to line 67
+Cases and usage explained from line 49 to line 67 in the test.php file
 
 UPDATE:
 
-Cases and usage explained from line 70 to line 92
+Cases and usage explained from line 70 to line 92 in the test.php file
 
 DELETE:
 
-Cases and usage explained from line 95 to line 116
+Cases and usage explained from line 95 to line 116 in the test.php file
