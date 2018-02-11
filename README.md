@@ -33,14 +33,18 @@ $test->select()->asArray()->one();
 
 **Example of WHERE**
 
-*Returns SELECT * FROM tableName WHERE t_id = 1 AND name = 'Vedran' LIMIT 1*
+*Returns the query SELECT * FROM tableName WHERE t_id = 1 AND name = 'Vedran' LIMIT 1*
 ```php
 $test->select()->where(['t_id' => 1, 'name' => 'Vedran'])->one();
 ```
 
 **Example of LEFT JOIN and of where using a string NOTICE: If you are searching for a string, ex name=Vedran, it has to be like 'name="Vedran"'**
 
-*Returns the query SELECT * FROM test LEFT JOIN otherTableName ON otherTableName.field = currentTableName.field WHERE t_id = 1 LIMIT 1*
+*Returns the query*
+```mysql
+SELECT * FROM test LEFT JOIN otherTableName ON otherTableName.field = currentTableName.field WHERE t_id = 1 LIMIT 1
+```
+
 ```php 
 $test->select()->where('t_id = 1')->leftJoin(['otherTableName', 'otherTableName.field', 'currentTableName.field'])->one();
 ```
