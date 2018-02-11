@@ -32,36 +32,43 @@ $test->select()->asArray()->one();
 ```
 
 **Example of WHERE**
-
-*Returns the query SELECT * FROM tableName WHERE t_id = 1 AND name = 'Vedran' LIMIT 1*
 ```php
 $test->select()->where(['t_id' => 1, 'name' => 'Vedran'])->one();
 ```
+*Returns the query*
+```mysql
+SELECT * FROM tableName WHERE t_id = 1 AND name = 'Vedran' LIMIT 1
+```
+
 
 **Example of LEFT JOIN and of where using a string NOTICE: If you are searching for a string, ex name=Vedran, it has to be like 'name="Vedran"'**
-
+```php 
+$test->select()->where('t_id = 1')->leftJoin(['otherTableName', 'otherTableName.field', 'currentTableName.field'])->one();
+```
 *Returns the query*
 ```mysql
 SELECT * FROM test LEFT JOIN otherTableName ON otherTableName.field = currentTableName.field WHERE t_id = 1 LIMIT 1
 ```
 
-```php 
-$test->select()->where('t_id = 1')->leftJoin(['otherTableName', 'otherTableName.field', 'currentTableName.field'])->one();
-```
-
 **Example of using andWhere and orWhere**
-
-*Returns the query SELECT * FROM test WHERE t_id = 1 AND name = Vedran OR age = 22 LIMIT 1*
 ```php
 $test->select()->where(['t_id' => 4])->andWhere(['name' => 'Vedran'])->orWhere(['age' => 22])->one();
 ```
+*Returns the query*
+```mysql
+SELECT * FROM test WHERE t_id = 1 AND name = Vedran OR age = 22 LIMIT 1
+```
+
 
 **Example of LIMIT and ORDER BY**
-
-*Returns the query SELECT * FROM test ORDER BY name DESC LIMIT 1*
 ```php
 $test->select()->limit('1')->orderBy('name DESC')->all();
 ```
+*Returns the query*
+```mysql
+SELECT * FROM test ORDER BY name DESC LIMIT 1
+```
+
 
 
 # INSERT
