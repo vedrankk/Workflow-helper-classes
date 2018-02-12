@@ -189,3 +189,6 @@ echo Html::ol($data, ['class' => 'ol_class'], ['class' => 'li_class']);
 	<li class="li_class">Third</li> 
 </ol>
 ```
+
+# FormHelper
+**NOTICE: Not finished yet. It is intended to work with the model, which will also be upgraded with the rules for the fields.**
