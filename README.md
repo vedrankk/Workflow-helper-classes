@@ -1,8 +1,8 @@
-This is a class made by me for practice, to see what I know and what I can do.
+These are classes made by me for practice, to see what I know and what I can do.
 Everything works as as it should and it is tested.
 
 **NOTICE: If anyone is actualy reading this/using the class ,I am still a junior programmer, so if there are any big mistakes feel free to point them out, I am eager to hear it.**
-The class was made for easier access to the database, and faster work.
+The Model class was made for easier access to the database, and faster work.
 
 
 The Model class is suposed to be used with another, as seen in the test.php file. 
@@ -147,4 +147,45 @@ $deleteTest->delete();
 *In the deleteWhere you can specify the table from where to delete. The default is the tableName()*
 ```php
 $deleteTest->where(['t_id' => 1])->andWhere(['name' => 'Vedran'])->orWhere(['age' => 35])->deleteWhere();
+```
+
+# HTML Class
+
+This class is created to help with the creation of the html tags, especialy lists which have dynamic values.
+
+**TAG**
+```php
+echo Html::tag('p', 'Hello', ['class' => 'world']);
+```
+*Displays*
+```html
+<p class="world">Hello</p>
+```
+
+**a**
+```php
+echo Html::a('index', 'Index', ['class' => 'link']);
+```
+*Displays*
+```html
+<a href="index" class="link">Index</a>
+```
+
+**ul/ol**
+```php
+$data = ['Multiple' => ['ul', ['Johny' => 'Johny', 'Blaze' => 'Blaze'], ['class' => 'ul', 'class' => 'li']], 'Second' => 'Second', 't' => 'Third'];
+echo Html::ol($data, ['class' => 'ol_class'], ['class' => 'li_class']);
+```
+*Displays*
+```html
+<ol class="ol_class">
+	<li class="li_class">
+		<ul class="li">
+			<li>Johny</li>
+			<li>Blaze</li> 
+		</ul>
+	</li>
+	<li class="li_class">Second</li>
+	<li class="li_class">Third</li> 
+</ol>
 ```
